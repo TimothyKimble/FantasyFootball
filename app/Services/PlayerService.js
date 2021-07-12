@@ -52,6 +52,18 @@ class PlayerService {
     store.commit("allPlayers", allPlayers);
     store.commit("myTeam", myTeam);
   }
+
+  filterByTeam(searchedteam) {
+    let colleciton = store.State.allPlayers;
+    let team = collection.filter(p => p.team == searchedteam);
+    store.commit("activePlayers", team);
+  }
+
+  filterByPosition(position) {
+    let collection = store.State.allPlayers;
+    let team = collection.filter(p => p.position == position);
+    store.commit("activePlayers", team);
+  }
 }
 
 const service = new PlayerService();
